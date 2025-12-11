@@ -11,7 +11,7 @@ class MusicHandler {
   // songs handler
 
   async postSongHandler(request, h) {
-    this._validator.validateAlbumPayload(request.payload);
+    this._validator.validateMusicPayload(request.payload);
 
     const {
       title = 'untitled',
@@ -30,6 +30,8 @@ class MusicHandler {
       duration,
       albumId,
     });
+
+    console.log(songId);
 
     const response = h.response({
       status: 'success',

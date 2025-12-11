@@ -36,7 +36,7 @@ class AlbumService {
     if (!result.rows.length) {
       throw new NotFoundError('Album tidak ditemukan');
     }
-    return result.rows.map(albumMapModel);
+    return result.rows.map(albumMapModel)[0];
   }
 
   async editAlbumById(id, { name, year }) {
