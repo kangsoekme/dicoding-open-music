@@ -8,59 +8,10 @@ class MusicHandler {
     autoBind(this);
   }
 
-  // album handler
-
-  async postAlbumHandler(request, h) {
-    this._validator.validateMusicPayload(request.payload);
-
-    const { name = 'undefined', year } = request.payload;
-
-    const albumId = await this._service.addAlbum({ name, year });
-
-    const response = h.response({
-      status: 'success',
-      data: {
-        albumId,
-      },
-    });
-    response.code(201);
-    return response;
-  }
-
-  async getAlbumByIdHandler(request) {
-    const { id } = request.params;
-    const album = await this._service.getAlbumById(id);
-    return {
-      status: 'success',
-      data: {
-        album,
-      },
-    };
-  }
-
-  async putAlbumByIdHandler(request) {
-    this._validator.validateMusicPayload(request.payload);
-    const { id } = request.params;
-    await this._service.editAlbumById(id, request.payload);
-    return {
-      status: 'success',
-      message: 'Album berhasil diperbarui',
-    };
-  }
-
-  async deleteAlbumByIdHandler(request) {
-    const { id } = request.params;
-    await this._service.deleteAlbumById(id);
-    return {
-      status: 'success',
-      message: 'Album berhasil dihapus',
-    };
-  }
-
   // songs handler
 
   async postSongHandler(request, h) {
-    this._validator.validateMusicPayload(request.payload);
+    this._validator.validateAlbumPayload(request.payload);
 
     const {
       title = 'untitled',
