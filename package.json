@@ -1,0 +1,24 @@
+{
+  "name": "1.open-music-v1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon ./src/server.js",
+    "migrate": "node-pg-migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.4.4",
+    "auto-bind": "^4.0.0",
+    "dotenv": "^17.2.3",
+    "joi": "^18.0.2",
+    "nanoid": "^5.1.6",
+    "node-pg-migrate": "^7.6.1",
+    "nodemon": "^3.1.11",
+    "pg": "^8.16.3"
+  }
+}
